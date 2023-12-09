@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/Scenes/Menu2J.unity
+- path: Assets/Scenes/Datos.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0

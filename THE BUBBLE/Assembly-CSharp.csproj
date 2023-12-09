@@ -54,6 +54,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
+    <Analyzer Include="D:\UnityProyects\PracticaFinal\THE BUBBLE\Library\PackageCache\io.realm.unity@10.21.0\Editor\Realm.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Photon\PhotonRealtime\Demos\DemoLoadBalancing\ConnectAndJoinRandomLb.cs" />
@@ -65,25 +66,27 @@
     <Compile Include="Assets\Photon\PhotonChat\Demos\DemoChat\AppSettingsExtensions.cs" />
     <Compile Include="Assets\Photon\PhotonChat\Demos\DemoChat\NamePickGui.cs" />
     <Compile Include="Assets\scripts\SceneGame1J\Burbujas.cs" />
+    <Compile Include="Assets\scripts\SceneDatos\MusicaController.cs" />
     <Compile Include="Assets\Photon\PhotonChat\Demos\DemoChat\ChannelSelector.cs" />
     <Compile Include="Assets\scripts\SceneGame1J\Pool.cs" />
     <Compile Include="Assets\Photon\PhotonChat\Demos\DemoChat\IgnoreUiRaycastWhenInactive.cs" />
     <Compile Include="Assets\scripts\SceneGame1J\ScreenActionsSceneGame1J.cs" />
+    <Compile Include="Assets\scripts\SceneGame2J\Pool2J.cs" />
     <Compile Include="Assets\scripts\Astilla.cs" />
     <Compile Include="Assets\Photon\PhotonChat\Demos\Common\EventSystemSpawner.cs" />
+    <Compile Include="Assets\scripts\SceneGame2J\ScreenActionsSceneGame2J.cs" />
     <Compile Include="Assets\Photon\PhotonChat\Demos\DemoChat\FriendItem.cs" />
+    <Compile Include="Assets\scripts\SceneMenu2J\AutoLobby.cs" />
     <Compile Include="Assets\scripts\SceneDatos\ScreenActionsSceneDatos.cs" />
     <Compile Include="Assets\Photon\PhotonChat\Demos\DemoChat\ChatGui.cs" />
     <Compile Include="Assets\scripts\SceneDatos\LoginControler.cs" />
     <Compile Include="Assets\scripts\SceneDatos\RealmController.cs" />
     <Compile Include="Assets\scripts\PlayerProfile.cs" />
     <Compile Include="Assets\Photon\PhotonChat\Demos\Common\TextToggleIsOnTransition.cs" />
-    <Compile Include="Assets\Photon\PhotonChat\Demos\Common\OnStartDelete.cs" />
-    <Compile Include="Assets\scripts\SceneMenu\ScreenActionsSceneMenu.cs" />
     <Compile Include="Assets\scripts\SceneMenu2J\ScreenActionsSceneMenu2J.cs" />
+    <Compile Include="Assets\Photon\PhotonChat\Demos\Common\OnStartDelete.cs" />
     <Compile Include="Assets\scripts\SceneGame2J\Burbuja2J.cs" />
-    <Compile Include="Assets\scripts\SceneGame2J\Pool2J.cs" />
-    <Compile Include="Assets\scripts\SceneGame2J\ScreenActionsSceneGame2J.cs" />
+    <Compile Include="Assets\scripts\SceneMenu\ScreenActionsSceneMenu.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
@@ -334,7 +337,7 @@
       <HintPath>C:\Program Files\Unity\Hub\Editor\2020.3.40f1\Editor\Data\Managed\UnityEngine\UnityEditor.UnityConnectModule.dll</HintPath>
     </Reference>
     <Reference Include="Realm.UnityUtils">
-      <HintPath>Library\PackageCache\io.realm.unity@10.3.0\Runtime\Realm.UnityUtils.dll</HintPath>
+      <HintPath>Library\PackageCache\io.realm.unity@10.21.0\Runtime\Realm.UnityUtils.dll</HintPath>
     </Reference>
     <Reference Include="websocket-sharp">
       <HintPath>Assets\Photon\PhotonLibs\WebSocket\websocket-sharp.dll</HintPath>
@@ -343,7 +346,7 @@
       <HintPath>Assets\Photon\PhotonLibs\netstandard2.0\Photon3Unity3D.dll</HintPath>
     </Reference>
     <Reference Include="Realm">
-      <HintPath>Library\PackageCache\io.realm.unity@10.3.0\Runtime\Realm.dll</HintPath>
+      <HintPath>Library\PackageCache\io.realm.unity@10.21.0\Runtime\Realm.dll</HintPath>
     </Reference>
     <Reference Include="mscorlib">
       <HintPath>C:\Program Files\Unity\Hub\Editor\2020.3.40f1\Editor\Data\MonoBleedingEdge\lib\mono\4.7.1-api\mscorlib.dll</HintPath>

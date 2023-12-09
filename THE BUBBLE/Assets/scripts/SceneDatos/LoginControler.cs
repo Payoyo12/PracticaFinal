@@ -7,7 +7,7 @@ using TMPro;
 
 public class LoginControler : MonoBehaviour
 {
-    public Button LoginButton;
+    //public Button LoginButton;
     public TextMeshProUGUI Usuario;
     public TextMeshProUGUI Contraseña;
     public TextMeshProUGUI Errores;
@@ -16,9 +16,7 @@ public class LoginControler : MonoBehaviour
 
     void Start()
     {
-        Usuario.text = "clasedepoyo@gmail.com";
-        Contraseña.text = "Clasedeluis12";
-        LoginButton.onClick.AddListener(Login);
+        
     }
 
     //mongodb realmControler
@@ -26,16 +24,20 @@ public class LoginControler : MonoBehaviour
     {
         Errores.text = "Iniciando sesion";
         ScreenActionsSceneDatos.ActivarPantallaCarga();
-        if (await RealmController.Instance.Login(Usuario.text, Contraseña.text) != "")
-        {
 
-            //CargarDatos();
+        if (await RealmController.Instance.Login(Usuario.text) != "")
+        {
+            Debug.Log("Entre");
             SceneManager.LoadScene("Menu");
+
         }
         else
         {
+            Errores.text = "Error de logeo";
             ScreenActionsSceneDatos.DesactivarPantallaCarga();
         }
+        
+        
 
     }
 }

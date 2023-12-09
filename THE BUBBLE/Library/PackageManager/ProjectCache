@@ -5,16 +5,16 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 638368793276284233
-    m_Hash: 2041087621
+      ticks: 638377223833573291
+    m_Hash: 2103988563
   m_LockFileStatus:
     m_FilePath: D:/UnityProyects/PracticaFinal/THE BUBBLE/Packages/packages-lock.json
     m_PathExists: 1
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 638368843316924630
-    m_Hash: 3332652150
+      ticks: 638377224179748517
+    m_Hash: 1368004320
 m_EmbeddedPackageManifests:
   m_ManifestsStatus: {}
 m_PackageAssets:
@@ -237,6 +237,7 @@ m_PackageAssets:
         - 3.0.24
         - 3.0.25
         - 3.0.26
+        - 3.0.27
         compatible:
         - 1.0.2
         - 1.0.6
@@ -278,7 +279,8 @@ m_PackageAssets:
         - 3.0.24
         - 3.0.25
         - 3.0.26
-        verified: 3.0.26
+        - 3.0.27
+        verified: 3.0.27
       dependencies:
       - name: com.unity.ext.nunit
         version: 1.0.6
@@ -2670,12 +2672,12 @@ m_PackageAssets:
         url: 
         revision: 
         path: 
-    - packageId: io.realm.unity@10.3.0
+    - packageId: io.realm.unity@10.21.0
       testable: 0
       isDirectDependency: 1
-      version: 10.3.0
+      version: 10.21.0
       source: 1
-      resolvedPath: D:\UnityProyects\PracticaFinal\THE BUBBLE\Library\PackageCache\io.realm.unity@10.3.0
+      resolvedPath: D:\UnityProyects\PracticaFinal\THE BUBBLE\Library\PackageCache\io.realm.unity@10.21.0
       assetPath: Packages/io.realm.unity
       name: io.realm.unity
       displayName: Realm
@@ -2685,7 +2687,10 @@ m_PackageAssets:
         url: https://docs.mongodb.com/realm/dotnet/
       category: 
       type: 
-      description: Realm is an embedded mobile database for Unity
+      description: Realm is an embedded, object-oriented database that lets you build
+        real-time, always-on applications. With Realm, data is directly exposed as
+        objects and queryable by code, removing the need for ORM's riddled with performance
+        & maintenance issues. Additio
       status: 4
       errors: []
       versions:
@@ -2750,7 +2755,7 @@ m_PackageAssets:
       entitlements:
         isAllowed: 1
       isAssetStorePackage: 0
-      datePublishedTicks: 637612912134110000
+      datePublishedTicks: 638152319948760000
       documentationUrl: 
       hasRepository: 1
       repository:

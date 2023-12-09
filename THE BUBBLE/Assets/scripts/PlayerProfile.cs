@@ -1,46 +1,32 @@
 using System.Collections;
 using System.Collections.Generic;
+using JetBrains.Annotations;
+using MongoDB.Bson;
 using UnityEngine;
 using Realms;
 using Realms.Sync;
 
-public class PlayerProfile : RealmObject
+public partial class PlayerProfile : RealmObject
 {
 
     [PrimaryKey]
     [MapTo("_id")]
-    public string UserId { get; set; }
-
-    [MapTo("PuntuacionTemporal1J")]
-    public int PuntuacionTemporal1J { get; set; }
-
-    [MapTo("NumPartidasJugadas1J")]
-    public int NumPartidasJugadas1J { get; set; }
-
-    [MapTo("NumPuntosTotales1J")]
-    public int NumPuntosTotales1J { get; set; }
-
-
-    [MapTo("PuntuacionMax1J")]
-    public int PuntuacionMax1J { get; set; }
-
-
-    [MapTo("NumBurbujasTotales1J")]
-    public int NumBurbujasTotales1J { get; set; }
-
-
-    [MapTo("NumBurbujasAzules1J")]
-    public int NumBurbujasAzules1J { get; set; }
-
-
-    [MapTo("NumBurbujasDoradas1J")]
-    public int NumBurbujasDoradas1J { get; set; }
+    public ObjectId UserId { get; set; }
+    [CanBeNull] public string Nombre { get; set; }
+    public int? PuntuacionTemporal1J { get; set; }
+    public int? NumPartidasJugadas1J { get; set; }
+    public int? NumPuntosTotales1J { get; set; }
+    public int? PuntuacionMax1J { get; set; }
+    public int? NumBurbujasTotales1J { get; set; }
+    public int? NumBurbujasAzules1J { get; set; }
+    public int? NumBurbujasDoradas1J { get; set; }
 
     public PlayerProfile() { }
 
-    public PlayerProfile(string userId)
+    public PlayerProfile(string nombre)
     {
-        this.UserId = userId;
+        this.UserId = ObjectId.GenerateNewId();
+        this.Nombre = nombre;
         this.PuntuacionTemporal1J = 0;
         this.NumPartidasJugadas1J = 0;
         this.NumPuntosTotales1J = 0;
@@ -49,17 +35,4 @@ public class PlayerProfile : RealmObject
         this.NumBurbujasAzules1J = 0;
         this.NumBurbujasDoradas1J = 0;
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
 }

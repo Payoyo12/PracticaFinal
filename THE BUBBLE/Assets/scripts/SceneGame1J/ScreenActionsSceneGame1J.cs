@@ -6,7 +6,6 @@ using UnityEngine.SceneManagement;
 
 public class ScreenActionsSceneGame1J : MonoBehaviour
 {
-    private PlayerProfile _playerProfile;
 
     public GameObject Fondo;
     public GameObject PJugando;
@@ -20,17 +19,21 @@ public class ScreenActionsSceneGame1J : MonoBehaviour
 
     public Pool Pool;
 
+    public AudioSource MusicaFondo;
+
+    private bool ResultadoEnEjecucion;
+
+
+
     private void Awake()
     {
-        _playerProfile = RealmController.Instance.GetPlayerProfile();
-
         ReestablecerValores();
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        ResultadoEnEjecucion = false;
         PantallaJugando();
     }
 
@@ -39,7 +42,7 @@ public class ScreenActionsSceneGame1J : MonoBehaviour
     {
         if (Temporizador)
         {
-            if (Contador > 0)
+            if (Contador >= 0)
             {
                 Contador -= Time.deltaTime;
                 int tiempoRedondeado = Mathf.CeilToInt(Contador);
@@ -47,8 +50,11 @@ public class ScreenActionsSceneGame1J : MonoBehaviour
             }
             else
             {
-                PantallaResultado();
-                ReestablecerValores();
+                if (!ResultadoEnEjecucion)
+                {
+                    PantallaResultado();
+                    ResultadoEnEjecucion = true;
+                }
 
 
             }
@@ -60,11 +66,14 @@ public class ScreenActionsSceneGame1J : MonoBehaviour
 
     public void PantallaJugando()
     {
+        
+
         Fondo.SetActive(false);
         PJugando.SetActive(true);
         PResultado.SetActive(false);
 
-
+        //MusicaController.Instance.DesactivarAudio();
+        //MusicaFondo.Play();
         Temporizador = true;
         Pool.burbujasFinales = false;
 
@@ -73,20 +82,28 @@ public class ScreenActionsSceneGame1J : MonoBehaviour
 
     public void PantallaResultado()
     {
-        if (_playerProfile.PuntuacionTemporal1J > _playerProfile.PuntuacionMax1J)
+        RealmController.Instance.UpdateDataInt("NumPartidasJugadas1J", 1);
+
+        RealmController.Instance.UpdateDataInt("NumPuntosTotales1J", RealmController.Instance.GetDataInt("PuntuacionTemporal1J"));
+
+        if (RealmController.Instance.GetDataInt("PuntuacionTemporal1J") >
+            RealmController.Instance.GetDataInt("PuntuacionMax1J"))
         {
-            Resultado.text = "New Record\n" + _playerProfile.PuntuacionTemporal1J;
-            _playerProfile.PuntuacionMax1J = _playerProfile.PuntuacionTemporal1J;
+            RealmController.Instance.UpdateDataInt("PuntuacionMax1J", RealmController.Instance.GetDataInt("PuntuacionTemporal1J"));
+            Resultado.text = "New Record\n" + RealmController.Instance.GetDataInt("PuntuacionMax1J");
         }
         else
         {
-            Resultado.text = "PUNTUACION\n" + _playerProfile.PuntuacionTemporal1J;
+            Resultado.text = "PUNTUACION\n" + RealmController.Instance.GetDataInt("PuntuacionTemporal1J");
         }
+
+        
+
 
         Fondo.SetActive(true);
         PJugando.SetActive(false);
         PResultado.SetActive(true);
-
+        ReestablecerValores();
     }
 
     public void SceneMenu1J()
@@ -96,11 +113,14 @@ public class ScreenActionsSceneGame1J : MonoBehaviour
 
     private void ReestablecerValores()
     {
+        //MusicaController.Instance.ActivarAudio();
+        //MusicaFondo.Stop();
         Pool.burbujasFinales = true;
         Temporizador = false;
         Contador = 10;
         Jugando.text = Contador.ToString();
-        _playerProfile.PuntuacionTemporal1J = 0;
+        ResultadoEnEjecucion = false;
+        RealmController.Instance.resetearData("PuntuacionTemporal1J");
 
 
     }

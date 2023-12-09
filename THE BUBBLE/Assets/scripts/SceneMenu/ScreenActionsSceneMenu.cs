@@ -6,23 +6,20 @@ using UnityEngine.SceneManagement;
 
 public class ScreenActionsSceneMenu : MonoBehaviour
 {
-    private PlayerProfile _playerProfile;
 
     public GameObject Fondo;
     public GameObject PJugadores;
     public GameObject PEstadisticas;
     public TextMeshProUGUI Estadisticas1j;
     public GameObject PLogros;
-    //public GameObject PCarga;
+
 
 
     // Start is called before the first frame update
     void Start()
     {
-        _playerProfile = RealmController.Instance.GetPlayerProfile();
 
         Fondo.SetActive(true);
-        //DesactivarPantallaCarga();
         PantallaJugadores();
     }
 
@@ -43,14 +40,13 @@ public class ScreenActionsSceneMenu : MonoBehaviour
     public void PantallaEstadisticas()
     {
 
-        
 
-        Estadisticas1j.text = "|    " + _playerProfile.NumPartidasJugadas1J +
-                            "\n|    " + _playerProfile.NumPuntosTotales1J +
-                            "\n|    " + _playerProfile.PuntuacionMax1J +
-                            "\n|    " + _playerProfile.NumBurbujasTotales1J +
-                            "\n|    " + _playerProfile.NumBurbujasAzules1J +
-                            "\n|    " + _playerProfile.NumBurbujasDoradas1J;
+        Estadisticas1j.text = "|    " + RealmController.Instance.GetDataInt("NumPartidasJugadas1J") +
+                            "\n|    " + RealmController.Instance.GetDataInt("NumPuntosTotales1J") +
+                            "\n|    " + RealmController.Instance.GetDataInt("PuntuacionMax1J") +
+                            "\n|    " + RealmController.Instance.GetDataInt("NumBurbujasTotales1J") +
+                            "\n|    " + RealmController.Instance.GetDataInt("NumBurbujasAzules1J") +
+                            "\n|    " + RealmController.Instance.GetDataInt("NumBurbujasDoradas1J");
 
         PJugadores.SetActive(false);
         PEstadisticas.SetActive(true);
@@ -66,17 +62,6 @@ public class ScreenActionsSceneMenu : MonoBehaviour
     }
 
 
-    
-
-    //public void ActivarPantallaCarga()
-    //{
-    //    PCarga.SetActive(true);
-    //}
-
-    //public void DesactivarPantallaCarga()
-    //{
-    //    PCarga.SetActive(false);
-    //}
 
     public void SceneMenu1J()
     {

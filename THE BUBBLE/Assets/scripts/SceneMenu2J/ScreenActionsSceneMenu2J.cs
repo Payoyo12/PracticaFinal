@@ -18,7 +18,7 @@ public class ScreenActionsSceneMenu2J : MonoBehaviour
     {
 
         ReestablecerValores();
-        PantallaJugar();
+        //PantallaJugar();
     }
 
     // Update is called once per frame

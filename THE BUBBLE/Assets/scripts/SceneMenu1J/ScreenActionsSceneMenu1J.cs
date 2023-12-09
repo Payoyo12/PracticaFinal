@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class ScreenActionsSceneMenu1J : MonoBehaviour
 {
-    private PlayerProfile _playerProfile;
+
 
     public GameObject PJugar;
     public TextMeshProUGUI PuntuacionMaxima;
@@ -18,7 +18,6 @@ public class ScreenActionsSceneMenu1J : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        _playerProfile = RealmController.Instance.GetPlayerProfile();
 
         ReestablecerValores();
         PantallaJugar();
@@ -56,7 +55,7 @@ public class ScreenActionsSceneMenu1J : MonoBehaviour
 
     public void PantallaJugar()
     {
-        PuntuacionMaxima.text = "Puntuacion Maxima " + _playerProfile.PuntuacionMax1J;
+        PuntuacionMaxima.text = "Puntuacion Maxima " + RealmController.Instance.GetDataInt("PuntuacionMax1J");
         PJugar.SetActive(true);
         PComenzandor.SetActive(false);
 

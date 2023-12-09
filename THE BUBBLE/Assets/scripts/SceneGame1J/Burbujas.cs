@@ -10,7 +10,6 @@ public class Burbujas : MonoBehaviour
     private int burbujaDoradaVida = 3;
 
     //Datos
-    private PlayerProfile _playerProfile;
 
     //audio
 
@@ -18,12 +17,12 @@ public class Burbujas : MonoBehaviour
     public GameObject audioBurbujaDorada;
 
     //collider
-
-    private BoxCollider2D[] burbujaBoxCollider2D;
+    private BoxCollider2D[] burbujaBoxColliders;
+    //private BoxCollider2D[] burbujaBoxCollider2D;
 
     private void Awake()
     {
-        _playerProfile = RealmController.Instance.GetPlayerProfile();
+
 
         audioBurbuja16 = GameObject.FindGameObjectWithTag("burbujaexplot16");
         audioBurbujaDorada = GameObject.FindGameObjectWithTag("burbujaexplotdorada");
@@ -32,7 +31,8 @@ public class Burbujas : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
-        burbujaBoxCollider2D = gameObject.GetComponents<BoxCollider2D>();
+        burbujaBoxColliders = gameObject.GetComponents<BoxCollider2D>();
+        //burbujaBoxCollider2D = gameObject.GetComponents<BoxCollider2D>();
     }
 
     // Update is called once per frame
@@ -45,17 +45,18 @@ public class Burbujas : MonoBehaviour
         if (gameObject.tag.Equals("burbuja"))
         {
             burbujaVida = 1;
-            burbujaBoxCollider2D[0].enabled = true;
-            burbujaBoxCollider2D[1].enabled = true;
+            //burbujaBoxCollider2D[0].enabled = true;
+            //burbujaBoxCollider2D[1].enabled = true;
         }
 
         if (gameObject.tag.Equals("burbujaDorada"))
         {
             burbujaDoradaVida = 3;
-            burbujaBoxCollider2D[0].enabled = true;
-            burbujaBoxCollider2D[1].enabled = true;
+            //burbujaBoxCollider2D[0].enabled = true;
+            //burbujaBoxCollider2D[1].enabled = true;
         }
 
+        foreach (var burbujaBoxCollider in burbujaBoxColliders) burbujaBoxCollider.enabled = true;
         audioBurbuja16.GetComponent<AudioSource>().Stop();
         audioBurbujaDorada.GetComponent<AudioSource>().Stop();
     }
@@ -76,12 +77,13 @@ public class Burbujas : MonoBehaviour
         {
             audioBurbuja16.GetComponent<AudioSource>().Play();
             gameObject.GetComponent<Animator>().Play("burbujaexplot16");
-            burbujaBoxCollider2D[0].enabled = false;
-            burbujaBoxCollider2D[1].enabled = false;
+            foreach (var burbujaBoxCollider in burbujaBoxColliders) burbujaBoxCollider.enabled = false;
+            //burbujaBoxCollider2D[0].enabled = false;
+            //burbujaBoxCollider2D[1].enabled = false;
             gameObject.GetComponent<Rigidbody2D>().velocity = new Vector3(0, 0, 0);
-            _playerProfile.PuntuacionTemporal1J++;
-            _playerProfile.NumBurbujasTotales1J++;
-            _playerProfile.NumBurbujasAzules1J++;
+            RealmController.Instance.UpdateDataInt("PuntuacionTemporal1J", 1);
+            RealmController.Instance.UpdateDataInt("NumBurbujasTotales1J", 1);
+            RealmController.Instance.UpdateDataInt("NumBurbujasAzules1J", 1);
 
         }
 
@@ -89,12 +91,12 @@ public class Burbujas : MonoBehaviour
         {
             audioBurbujaDorada.GetComponent<AudioSource>().Play();
             gameObject.GetComponent<Animator>().Play("burbujaexplot16");
-            burbujaBoxCollider2D[0].enabled = false;
-            burbujaBoxCollider2D[1].enabled = false;
+            //burbujaBoxCollider2D[0].enabled = false;
+            //burbujaBoxCollider2D[1].enabled = false;
             gameObject.GetComponent<Rigidbody2D>().velocity = new Vector3(0, 0, 0);
-            _playerProfile.PuntuacionTemporal1J+=3;
-            _playerProfile.NumBurbujasTotales1J++;
-            _playerProfile.NumBurbujasDoradas1J+=3;
+            RealmController.Instance.UpdateDataInt("PuntuacionTemporal1J", 3);
+            RealmController.Instance.UpdateDataInt("NumBurbujasTotales1J", 1);
+            RealmController.Instance.UpdateDataInt("NumBurbujasDoradas1J", 1);
 
         }
     }
