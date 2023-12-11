@@ -56,7 +56,9 @@ public class Burbujas : MonoBehaviour
             //burbujaBoxCollider2D[1].enabled = true;
         }
 
-        foreach (var burbujaBoxCollider in burbujaBoxColliders) burbujaBoxCollider.enabled = true;
+
+        //no es necesario activar los coliders
+        //foreach (var burbujaBoxCollider in burbujaBoxColliders) burbujaBoxCollider.enabled = true;
         audioBurbuja16.GetComponent<AudioSource>().Stop();
         audioBurbujaDorada.GetComponent<AudioSource>().Stop();
     }
